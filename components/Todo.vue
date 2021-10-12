@@ -17,7 +17,7 @@
       </span>
     </label>
     <button class="font-bold text-red-800 flex-grow-0 -my-2 -mx-3 px-3 border-l hover:bg-red-400 hover:text-white transition rounded-r" @click="$emit('removetodo', { todo: todo, originalEvent: $event })">
-      X
+      <icon close />
     </button>
   </li>
 </template>
