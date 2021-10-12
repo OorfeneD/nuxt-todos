@@ -1,7 +1,23 @@
 import { createHash } from 'crypto'
 import Vue from 'vue'
 export const state = () => ({
-  todos: []
+  todos: [
+    {
+      content:
+      {
+        title: 'Check this ☑ToDo List'
+      },
+      id: '41c2a2d860f441befdb1e6dbdb18ec26',
+      status: false
+    },
+    {
+      content:
+      {
+        title: 'Follow the OorfeneD 🎈'
+      },
+      id: '51b816513f441a0be7b2cbc64c4c6f65',
+      status: false
+    }]
 })
 
 export const getters = {
