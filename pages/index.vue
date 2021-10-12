@@ -1,7 +1,9 @@
 <template>
+  <div class="w-screen min-h-screen flex flex-col items-center px-10 py-2">
   <div class=" w-96 rounded-xl border border-gray-100 shadow-sm p-5">
     <add-todo @error="showError" @addtodo="_addTodo" />
     <todo-list @removetodo="_removeTodo" @updatetodo="_updateTodo" />
+    </div>
   </div>
 </template>
 
