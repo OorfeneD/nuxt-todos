@@ -5,10 +5,10 @@
         ToDo List
       </h1>
       <span class="text-gray-400 text-sm">
-        by <a href="https://github.com/OorfeneD" class="text-blue-300 hover:bg-gray-100 p-1 rounded" title="GitHub OorfeneD"><icon github /> OorfeneD</a>
+        by <a href="https://github.com/OorfeneD" class="text-blue-300 hover:bg-gray-100 hover:text-blue-500 transition p-1 rounded" title="GitHub OorfeneD"><icon github /> OorfeneD</a>
       </span>
     </div>
-    <div class=" w-96 rounded-xl border border-gray-100 shadow-sm p-5">
+    <div class=" w-96 rounded-xl border border-gray-100 shadow-md p-5">
       <add-todo @error="showError" @addtodo="_addTodo" />
       <todo-list @removetodo="_removeTodo" @updatetodo="_updateTodo" />
     </div>
