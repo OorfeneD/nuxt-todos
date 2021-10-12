@@ -8,8 +8,8 @@
       name="todo"
       @change="$emit('updatetodo', { todo, status: $event.target.checked, originalEvent: $event})"
     >
-    <label class="flex-grow text-center" :for="todo.id">
-      <strike v-if="todo.status" class="text-gray-500 italic transition transition-all">
+    <label class="flex-grow text-center pl-1 pr-3" :for="todo.id">
+      <strike v-if="todo.status" class="text-gray-500 transition transition-all">
         {{ todo.content.title }}
       </strike>
       <span v-else>
