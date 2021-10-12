@@ -1,11 +1,11 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt-todos',
+    title: 'OorfeneD Nuxt ToDo list',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Simple Nuxt.js site with ToDo list functionality and simple design. Uses TailwindCSS' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -47,5 +47,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  // Target
+  target: process.env.DEPLOYMENT_TARGET || 'static'
 }
