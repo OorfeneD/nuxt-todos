@@ -5,24 +5,44 @@ export const state = () => ({
     {
       content:
       {
-        title: 'Check this ☑ToDo List'
+        title: 'Check this ☑ToDo List',
+        description: 'todo list, that made for peoples!'
       },
+      tags: [1, 3],
       id: '41c2a2d860f441befdb1e6dbdb18ec26',
       status: false
     },
     {
       content:
       {
-        title: 'Follow the OorfeneD 🎈'
+        title: 'Follow the OorfeneD 🎈',
+        description: 'Is this boy are really so good?'
       },
       id: '51b816513f441a0be7b2cbc64c4c6f65',
+      tags: [2, 3],
       status: false
-    }]
+    }],
+  tags: [
+    {
+      title: 'Important',
+      color: '#ca4422'
+    },
+    {
+      title: 'Hobby',
+      color: '#33ca22'
+    },
+    {
+      title: 'DevDays',
+      color: '#3344ca'
+    }
+  ]
 })
 
 export const getters = {
   todos: state => state.todos,
-  todoById: state => id => state.todos.reduce((acc, v) => v.id === id ? v : acc, null)
+  todoById: state => id => state.todos.reduce((acc, v) => v.id === id ? v : acc, null),
+  tags: state => Object.keys(state.tags).map(k => Object.assign({ key: k }, state.tags[k])),
+  tagById: state => id => state.tags[id]
 }
 
 export const mutations = {
@@ -31,6 +51,9 @@ export const mutations = {
   },
   changeTodoStatusByIndex (state, { index, status }) {
     Vue.set(state.todos[index], 'status', status)
+  },
+  addTag (state, { title, color }) {
+    state.tags.push({ title, color })
   }
 }
 
@@ -60,5 +83,12 @@ export const actions = {
   removeTodo ({ state, commit }, { id }) {
     commit('changeTodos', state.todos.filter(v => v.id !== id))
     this.$updateLocalStorage(state.todos)
+  },
+  addTag ({ state, commit }, { title }) {
+    const color = `hsl(${Math.floor(Math.random() * 360)}, 75%, 50%)`
+    commit('addTag', { color, title })
+  },
+  addTagToTodo ({ state, commit }, { tagId, todoId }) {
+    //
   }
 }
