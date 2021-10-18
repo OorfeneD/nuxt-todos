@@ -8,7 +8,7 @@ export const state = () => ({
         title: 'Check this ☑ToDo List',
         description: 'todo list, that made for peoples!'
       },
-      tags: [1, 3],
+      tags: [0],
       id: '41c2a2d860f441befdb1e6dbdb18ec26',
       status: false
     },
@@ -19,7 +19,7 @@ export const state = () => ({
         description: 'Is this boy are really so good?'
       },
       id: '51b816513f441a0be7b2cbc64c4c6f65',
-      tags: [2, 3],
+      tags: [1, 2],
       status: false
     }],
   tags: [
