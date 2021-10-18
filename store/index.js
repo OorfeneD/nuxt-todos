@@ -41,7 +41,7 @@ export const state = () => ({
 export const getters = {
   todos: state => state.todos,
   todoById: state => id => state.todos.reduce((acc, v) => v.id === id ? v : acc, null),
-  tags: state => Object.keys(state.tags).map(k => Object.assign({ key: k }, state.tags[k])),
+  tags: state => state.tags.map((v, i) => Object.assign({ id: i }, v)),
   tagById: state => id => state.tags[id]
 }
 
