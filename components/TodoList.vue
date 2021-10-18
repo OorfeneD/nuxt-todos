@@ -4,6 +4,7 @@
       v-for="todo in todos"
       :key="todo.id"
       :todo="todo"
+      :tags="tags"
       @removetodo="$emit('removetodo', $event)"
       @updatetodo="$emit('updatetodo', $event)"
     />
@@ -16,7 +17,7 @@ import Todo from './Todo.vue'
 export default {
   components: { Todo },
   computed: {
-    ...mapGetters(['todos'])
+    ...mapGetters(['todos', 'tags'])
   }
 }
 </script>
