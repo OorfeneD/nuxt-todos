@@ -22,6 +22,10 @@ export default {
     {
       src: '~/plugins/localStorageSync.js',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/firebase.js',
+      mode: 'client'
     }
   ],
 
