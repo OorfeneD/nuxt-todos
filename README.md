@@ -21,7 +21,7 @@ For detailed explanation on how things work, check out the [documentation](https
 
 ## Preview
 
-Preview available [here](https://nuxt-todo.sqbo.me)
+Preview version available [here](https://nuxt-todo.sqbo.me) on [Netlify](https://www.netlify.com/)
 
 ## Special Directories
 
