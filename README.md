@@ -17,7 +17,11 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+For detailed explanation on how things work, check out the [📒documentation](https://nuxtjs.org).
+
+## Preview
+
+Preview version available [here](https://nuxt-todo.sqbo.me) on [Netlify](https://www.netlify.com/)
 
 ## Special Directories
 
