@@ -2,8 +2,15 @@
 on:
   push:
     branches:
-    - example
-
+      - example
+      - yml-test
+  pull_request:
+    branches:
+      - main
+      - master
+      - example
+      - yml-test
+      
 name: Build and Deploy to Cloud Run
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT }}
