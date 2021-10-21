@@ -1,10 +1,15 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
 import { firebaseConfig } from '@/service/options' // Need to be defined. File is untracked now
 
 export default function ({ app, store }, inject) {
   initializeApp(firebaseConfig)
   const firebaseAuth = getAuth()
+  onAuthStateChanged(firebaseAuth, (user) => {
+    if (user) {
+      store.dispatch('user/setUser', user)
+    }
+  })
   try {
     inject('fireauth', {
       signup: (un, pw) => {
