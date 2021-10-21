@@ -7,7 +7,7 @@
       </button>
     </header>
     <form class="" action="post" @submit.prevent="proceed">
-  <div>
+      <div>
         <label class="text-sm underline block" for="fir">E-mail:</label>
         <input id="fir" v-model="fir" class="mb-4 w-full focus:shadow-inner transition shadow-xs focus:outline-none border border-gray-200 text-gray-600 px-3 py-2 rounded-md flex-grow " type="text" name="fir">
       </div>
@@ -31,9 +31,10 @@ export default {
     sec: ''
   }),
   methods: {
-    proceed () {
+    proceed (event) {
       try {
-        this.$fireauth.signup(this.fir, this.sec)
+        this.$emit('submit', { data: [this.fir, this.sec], originalEvent: event })
+        // this.$fireauth.signup(this.fir, this.sec)
       } catch (error) {
         // TODO: remove console
         console.error(error) // eslint-disable-line
