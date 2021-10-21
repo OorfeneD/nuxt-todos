@@ -1,8 +1,14 @@
 <template>
+  <div class="p-4 bg-white rounded-xl shadow-md my-5 border border-gray-100 w-96 ">
+    <header class="flex justify-between border-b border-gray-200 pb-2 mb-4">
+      <p><b>Sign up</b> with e-mail and password</p>
+      <button @click.prevent="$emit('close', $event)">
+        <icon close />
+      </button>
+    </header>
+    <form class="" action="post" @submit.prevent="proceed">
   <div>
-    <form class="p-4 rounded-xl shadow-md my-5 border border-gray-100 w-96 " action="post" @submit.prevent="proceed">
-      <div>
-        <label class="text-sm underline block" for="fir">Login:</label>
+        <label class="text-sm underline block" for="fir">E-mail:</label>
         <input id="fir" v-model="fir" class="mb-4 w-full focus:shadow-inner transition shadow-xs focus:outline-none border border-gray-200 text-gray-600 px-3 py-2 rounded-md flex-grow " type="text" name="fir">
       </div>
       <div>
