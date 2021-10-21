@@ -22,6 +22,7 @@ import Icon from '~/components/Icon.vue'
 import TodoList from '~/components/TodoList.vue'
 export default {
   components: { AddTodo, TodoList, Icon },
+  layout: 'main',
   methods: {
     ...mapActions(['addTodo', 'removeTodo', 'updateTodo']),
     showError (event) {
