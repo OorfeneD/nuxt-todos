@@ -22,6 +22,9 @@ import Icon from '~/components/Icon.vue'
 import TodoList from '~/components/TodoList.vue'
 export default {
   components: { AddTodo, TodoList, Icon },
+  mounted () {
+    this.$syncLocalStorage()
+  },
   methods: {
     ...mapActions(['addTodo', 'removeTodo', 'updateTodo']),
     showError (event) {
