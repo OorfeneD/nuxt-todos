@@ -1,23 +1,7 @@
-import { createHash } from 'crypto'
+// import { createHash } from 'crypto'
 import Vue from 'vue'
 export const state = () => ({
-  todos: [
-    {
-      content:
-      {
-        title: 'Check this ☑ToDo List'
-      },
-      id: '41c2a2d860f441befdb1e6dbdb18ec26',
-      status: false
-    },
-    {
-      content:
-      {
-        title: 'Follow the OorfeneD 🎈'
-      },
-      id: '51b816513f441a0be7b2cbc64c4c6f65',
-      status: false
-    }]
+  todos: []
 })
 
 export const getters = {
@@ -35,6 +19,18 @@ export const mutations = {
 }
 
 export const actions = {
+  async getTodos ({ commit, rootState }) {
+    const data = await fetch('https://us-central1-od-o-todo.cloudfunctions.net/getTodos', {
+      method: 'post',
+      body: JSON.stringify({
+        token: rootState.user.token
+      }),
+      mode: 'cors'
+    }).then(res => res.json()).catch(error => console.error(error) && null)
+    if (data && (data != null)) {
+      commit('changeTodos', (data.data))
+    }
+  },
   setTodos ({ commit }, todos) {
     commit('changeTodos', todos)
   },
@@ -42,23 +38,56 @@ export const actions = {
     const index = state.todos.reduce((acc, v, i) => v.id === id ? i : acc, -1)
     if (index >= 0 && index < state.todos.length) {
       commit('changeTodoStatusByIndex', { index, status })
+      fetch('https://us-central1-od-o-todo.cloudfunctions.net/updateTodo', {
+        method: 'post',
+        body: JSON.stringify({
+          token: state.user.token,
+          status,
+          todoId: id
+        }),
+        mode: 'cors'
+      }).then(res => res.json()).catch(error => console.error(error))
     } else {
       throw (new Error(`Invalid index variable: should be greater of zero and smaller than array length\nindex: ${index}, length: ${state.todos.length}`))
     }
     this.$updateLocalStorage(state.todos)
   },
-  addTodo ({ state, commit }, { content }) {
+  async addTodo ({ state, commit }, { content }) {
     if (!content.title) {
       throw (new Error('Invalid content variable: title prop is not defined\n content value: ' + content))
     }
-    const salt = 'Some salt string'
-    const hash = createHash('md5').update(content.title + Date.now() + Math.floor(Math.random() * (2 ** 64 - 1)) + salt).digest('hex')
-    const id = hash
-    commit('changeTodos', [...state.todos, { content, id, status: false }])
-    this.$updateLocalStorage(state.todos)
+    try {
+      const response = await fetch('https://us-central1-od-o-todo.cloudfunctions.net/addTodo', {
+        method: 'post',
+        body: JSON.stringify({
+          title: content.title,
+          token: state.user.token,
+          status: false
+        }),
+        mode: 'cors'
+      }).then(res => res.json())
+      // const salt = 'Some salt string'
+      // const hash = createHash('md5').update(content.title + Date.now() + Math.floor(Math.random() * (2 ** 64 - 1)) + salt).digest('hex')
+      if (response.error) {
+        throw (new Error('server error: ' + response.error))
+      }
+      const id = response.data.id
+      commit('changeTodos', [...state.todos, { content, id, status: false }])
+      this.$updateLocalStorage(state.todos)
+    } catch (error) {
+
+    }
   },
   removeTodo ({ state, commit }, { id }) {
     commit('changeTodos', state.todos.filter(v => v.id !== id))
     this.$updateLocalStorage(state.todos)
+    fetch('https://us-central1-od-o-todo.cloudfunctions.net/deleteTodo', {
+      method: 'post',
+      body: JSON.stringify({
+        token: state.user.token,
+        todoId: id
+      }),
+      mode: 'cors'
+    }).then(res => res.json()).catch(error => console.error(error))
   }
 }

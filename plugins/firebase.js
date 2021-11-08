@@ -10,6 +10,7 @@ export default function ({ app, store }, inject) {
       const token = await getIdToken(user)
       await store.dispatch('user/setUser', user)
       await store.dispatch('user/setToken', token)
+      await store.dispatch('getTodos')
     } else {
       store.dispatch('user/resetUser')
     }

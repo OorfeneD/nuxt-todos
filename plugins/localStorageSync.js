@@ -14,7 +14,7 @@ export default function ({ app, store }, inject) {
     })
     const lsJson = window.localStorage.getItem('todos')
     if (lsJson) {
-      store.dispatch('setTodos', JSON.parse(lsJson))
+      // store.dispatch('setTodos', JSON.parse(lsJson))
     }
   } catch (error) {
     // console.log(error)
