@@ -3,6 +3,12 @@ export default function ({ app, store }, inject) {
     inject('updateLocalStorage', (todos) => {
       window.localStorage.setItem('todos', JSON.stringify(todos))
     })
+    inject('syncLocalStorage', () => {
+      const lsJson = window.localStorage.getItem('todos')
+      if (lsJson) {
+        store.dispatch('setTodos', JSON.parse(lsJson))
+      }
+    })
     window.addEventListener('storage', (event) => {
       if (event.key === 'todos') {
         if (window.localStorage !== event.newValue) {
