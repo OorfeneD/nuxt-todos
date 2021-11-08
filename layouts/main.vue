@@ -4,7 +4,7 @@
       <div class=" font-bold text-xl text-purple-800 flex">
         <!-- <icon class="mr-2" note />  od-o-todo -->
       </div>
-      <div v-if="!!user" class="flex flex-row items-center gap-2">
+      <div v-if="isLoggedIn" class="flex flex-row items-center gap-2">
         <p class="text-sm">
           You are logged in as <span class="text-gray-800 underline font">{{ user.email }}</span>
         </p>
@@ -44,7 +44,12 @@ export default {
     ]
   }),
   computed: {
-    ...mapGetters('user', ['user'])
+    ...mapGetters('user', ['user', 'token', 'isLoggedIn'])
+  },
+  created () {
+    this.$nuxt.$on('modalshow', (type) => {
+      this.showModal(type)
+    })
   },
   methods: {
     ...mapActions('user', ['setUser']),
