@@ -1,29 +1,39 @@
 export const state = () => {
   return {
-    user: null
+    data: null,
+    token: null
   }
 }
 
 export const getters = {
-  user: state => state.user
+  isLoggedIn: state => !!(state.data && state.token),
+  user: state => state.data,
+  token: state => state.token
 }
 
 export const mutations = {
   setUser (state, data) {
-    state.user = data
+    state.data = data
+  },
+  setToken (state, data) {
+    state.token = data
   }
 }
 
 export const actions = {
-  setUser ({ state, commit }, user) {
-    if (state.user) {
+  async setUser ({ getters, commit }, user) {
+    if (getters.isLoggedIn) {
       // TODO: remove console
       console.error('User is already logged in') // eslint-disable-line
     } else {
-      commit('setUser', user)
+      await commit('setUser', user)
     }
   },
-  resetUser ({ commit }) {
-    commit('setUser', null)
+  async setToken ({ commit }, token) {
+    await commit('setToken', token)
+  },
+  async resetUser ({ commit }) {
+    await commit('setUser', null)
+    await commit('setToken', null)
   }
 }
