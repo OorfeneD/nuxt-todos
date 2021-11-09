@@ -1,73 +1,66 @@
-# nuxt-todos
+# 📝 Nuxt ToDo list
 
-## Build Setup
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39032069-66b0-411f-bf4e-4c9d34124d6a/deploy-status)](https://app.netlify.com/sites/friendly-davinci-11e13f/deploys)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/OorfeneD/nuxt-todos/Build%20and%20Deploy%20to%20Cloud%20Run)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/oorfened/nuxt-todos?color=green)
+![GitHub issues](https://img.shields.io/github/issues/oorfened/nuxt-todos?color=informational)
+---
 
-```bash
-# install dependencies
-$ yarn install
+It is 📝ToDo list project, built with [Nuxt.js](https://nuxtjs.org/).
+Project uses 🔥Firebase as back-end. Cloud Functions code available in [*this repo*](https://github.com/OorfeneD/firebase-todos)
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+## 🚀 Full tech stack
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+- [**Nuxt.js**](https://nuxtjs.org/)
+  > Main framework to generate static web site, project structure management.
+  > Nuxt is [Vue](https://github.com/vuejs) Framework. [VueX](https://github.com/vuejs/vuex) included in this build for state management
+- [**TailwindCSS**](https://tailwindcss.com/)
+  > Frontend CSS feature-first framework
+- [**Docker**](https://www.docker.com/)
+  > Used for build container with Nuxt App for cloud deployment
+- [**GitHub Actions**](https://github.com/features/actions)
+  > Automatic workflow to run tests and lint code. Provides deployment to GCP
+- [**Google Cloud Platform**](https://cloud.google.com/)
+  - [Cloud Run](https://cloud.google.com/run)
+    > Runs container as instance with scaling, traffic management, and minimal scale = 0
+  - [Cloud Storage](https://cloud.google.com/storage)
+    > Stores container versions
+- [**Firebase**](https://firebase.google.com/)
+  - [Authentication](https://firebase.google.com/docs/auth)
+    > Provide user access to site, allows to sign in, sign up
+  - [Cloud functions](https://firebase.google.com/docs/functions)
+    > Backend functions to CRUD operations with todos.
+  - [Cloud firestore](https://firebase.google.com/docs/firestore)
+    > Cloud Database to store todos
+## 🎲 Demo
 
-# generate static project
-$ yarn generate
-```
+Production version is available [**here**](https://nuxt-todo.sqbo.me).
 
-For detailed explanation on how things work, check out the [📒documentation](https://nuxtjs.org).
+> You can use account `demo@sqbo.me` with password `123456`
 
-## Preview
+Demo uses Netlify, automatically deploys on `main` branch changes.
 
-Preview version available [here](https://nuxt-todo.sqbo.me) on [Netlify](https://www.netlify.com/)
+## 🔨 Build Setup on own machine 
 
-## Special Directories
+To deploy project on your own machine and server:
+- Clone this repo with
+  ```bash
+  $ git clone https://github.com/OorfeneD/nuxt-todos.git
+  ```
+  And install dependencies with **`yarn`**:
+  ```bash
+  $ yarn install
+  ```
+  Or with **`npm`**
+  ```bash
+  $ npm install
+  ```
+  > Note that project provide `yarn.lock` file special for **`yarn`**
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+- Setup [**Firebase**](https://firebase.google.com/) project. Pay attention, that [Cloud functions](https://firebase.google.com/docs/functions) requires [Blaze Plan](https://firebase.google.com/pricing) to be selected in your project. 
 
-### `assets`
+- Clone [**`firebase-todos`**](https://github.com/OorfeneD/firebase-todos) repo and follow [**this guide**](https://firebase.google.com/docs/functions/get-started) to deploy functions to your project.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+  Note that in [*step 3*](https://firebase.google.com/docs/functions/get-started#initialize-your-project) of guide you need to use clonned project instead of creation new one. So you can skip all other actions and steps to [*step 7*](https://firebase.google.com/docs/functions/get-started#emulate-execution-of-your-functions), where you can try this project
 
 
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
