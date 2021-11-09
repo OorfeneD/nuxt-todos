@@ -58,5 +58,14 @@ export default {
   },
 
   // Target
-  target: process.env.DEPLOYMENT_TARGET || 'static'
+  target: process.env.DEPLOYMENT_TARGET || 'static',
+
+  env: {
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId
+  }
 }

@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, getIdToken, signOut } from 'firebase/auth'
-import { firebaseConfig } from '@/service/options' // Need to be defined. File is untracked now
+import { firebaseConfig } from '@/service/options' // Parameters are referenced in env
 
 export default function ({ app, store }, inject) {
   initializeApp(firebaseConfig)
