@@ -7,6 +7,9 @@
       @removetodo="$emit('removetodo', $event)"
       @updatetodo="$emit('updatetodo', $event)"
     />
+    <li v-if="todos.length < 1" class="text-sm text-gray-400 text-center py-2">
+      There is nothing here. Add your first ToDo
+    </li>
   </ul>
 </template>
 
