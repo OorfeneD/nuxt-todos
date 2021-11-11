@@ -6,7 +6,7 @@
       :checked="todo.status"
       type="checkbox"
       name="todo"
-      @change="$emit('updatetodo', { todo, status: $event.target.checked, originalEvent: $event})"
+      @change="$emit('updatetodo', { todo, newStatus: $event.target.checked, originalEvent: $event})"
     >
     <label class="flex-grow text-center pl-1 pr-3" :for="todo.id">
       <strike v-if="todo.status" class="text-gray-500 transition transition-all">
