@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo Component matchs snapshot 1`] = `
+"<li class=\\"py-2 px-3 border border-gray-100 text-gray-500 rounded-md my-1 flex  \\"><input id=\\"hash\\" type=\\"checkbox\\" name=\\"todo\\" class=\\"flex-grow-0\\"> <label for=\\"hash\\" class=\\"flex-grow text-center pl-1 pr-3\\"><span>
+      todo text
+    </span></label> <button class=\\"font-bold text-red-800 flex-grow-0 -my-2 -mx-3 px-3 border-l hover:bg-red-400 hover:text-white transition rounded-r\\">
+    <icon-stub close=\\"true\\"></icon-stub>
+  </button></li>"
+`;
