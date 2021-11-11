@@ -36,7 +36,7 @@ describe('Todo Component', () => {
     expect(wrapper.emitted('updatetodo')[0]).not.toBeUndefined()
     expect(wrapper.emitted('updatetodo')[0][0]).toStrictEqual(
       expect.objectContaining(
-        { todo: todoPropData, status: true }
+        { todo: todoPropData, newStatus: true }
       )
     )
   })
