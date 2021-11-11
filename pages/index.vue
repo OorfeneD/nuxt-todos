@@ -50,7 +50,7 @@ export default {
       this.addTodo({ content: event.content })
     },
     _updateTodo (event) {
-      this.updateTodo({ status: event.status, id: event.todo.id })
+      this.updateTodo({ status: event.newStatus, id: event.todo.id })
     },
     showModal (modalType) {
       this.$nuxt.$emit('modalshow', modalType)
