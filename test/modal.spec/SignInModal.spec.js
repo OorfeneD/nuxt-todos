@@ -28,10 +28,4 @@ describe('SignInModal', () => {
     expect(wrapper.emitted().submit[0][0].data).not.toBeUndefined()
     expect(wrapper.emitted().submit[0][0].data).toMatchObject([login, password])
   })
-  test('didn`t emits on empty inputs', () => {
-    wrapper.find('input#fir').setValue('')
-    wrapper.find('input#sec').setValue('')
-    wrapper.find('form').trigger('submit')
-    expect(wrapper.emitted().submit).not.toBeTruthy()
-  })
 })

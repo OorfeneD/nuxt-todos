@@ -4,7 +4,7 @@ exports[`SignUpModal matchs snapshot 1`] = `
 "<div class=\\"p-4 bg-white rounded-xl shadow-md my-5 border border-gray-100 w-96 \\">
   <header class=\\"flex justify-between border-b border-gray-200 pb-2 mb-4\\">
     <p><b>Sign up</b> with e-mail and password</p> <button>
-      <icon close=\\"\\"></icon>
+      <icon-stub close=\\"true\\"></icon-stub>
     </button>
   </header>
   <form action=\\"post\\">
