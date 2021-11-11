@@ -23,7 +23,9 @@
 </template>
 
 <script>
+import Icon from './Icon.vue'
 export default {
+  components: { Icon },
   props: {
     todo: {
       type: Object,
