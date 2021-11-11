@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInModal matchs snapshot 1`] = `
+"<div class=\\"p-4 bg-white rounded-xl shadow-md my-5 border border-gray-100 w-96 \\">
+  <header class=\\"flex justify-between border-b border-gray-200 pb-2 mb-4\\">
+    <p><b>Sign in</b> with e-mail and password</p> <button>
+      <icon-stub close=\\"true\\"></icon-stub>
+    </button>
+  </header>
+  <form action=\\"post\\">
+    <div><label for=\\"fir\\" class=\\"text-sm underline block\\">E-mail:</label> <input id=\\"fir\\" type=\\"text\\" name=\\"fir\\" class=\\"mb-4 w-full focus:shadow-inner transition shadow-xs focus:outline-none border border-gray-200 text-gray-600 px-3 py-2 rounded-md flex-grow \\"></div>
+    <div><label for=\\"sec\\" class=\\"text-sm underline block\\">Password:</label> <input id=\\"sec\\" type=\\"password\\" name=\\"sec\\" class=\\"mb-4 w-full focus:shadow-inner transition shadow-xs focus:outline-none border border-gray-200 text-gray-600 px-3 py-2 rounded-md flex-grow \\"></div>
+    <div><button class=\\" hover:bg-indigo-500 text-gray-600 hover:text-white transition px-2 py-2 border border-gray-200 rounded-md hover:shadow-sm\\">
+        Sign In
+      </button></div>
+  </form>
+</div>"
+`;
