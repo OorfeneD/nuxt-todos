@@ -29,6 +29,7 @@ describe('index page', () => {
     emptyGetters = {
       isLoggedIn: () => false
     }
+    // eslint-disable-next-line
     store = new VueX.Store({
       actions,
       modules: {
@@ -38,6 +39,7 @@ describe('index page', () => {
         }
       }
     })
+    // eslint-disable-next-line
     emptyStore = new VueX.Store({
       actions,
       modules: {
@@ -91,7 +93,7 @@ describe('index page', () => {
       expect(actions.removeTodo).toHaveBeenCalled()
     })
     test('dispatches `updateTodo` action on `TodoList` component events', () => {
-      wrapper.findComponent(TodoList).vm.$emit('updatetodo', todo)
+      wrapper.findComponent(TodoList).vm.$emit('updatetodo', { newStatus: true, todo })
       expect(actions.updateTodo).toHaveBeenCalled()
     })
   })
