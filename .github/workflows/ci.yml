@@ -50,10 +50,3 @@ jobs:
 
       - name: Run tests 🧪
         run: yarn test
-
-
-      - name: Codecov ☂
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          flags: unittests
