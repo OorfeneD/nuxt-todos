@@ -1,5 +1,6 @@
 // import { createHash } from 'crypto'
 import Vue from 'vue'
+import { getUrl } from '@/service/url'
 export const state = () => ({
   todos: []
 })
@@ -20,7 +21,7 @@ export const mutations = {
 
 export const actions = {
   async getTodos ({ commit, rootState }) {
-    const data = await fetch('https://us-central1-od-o-todo.cloudfunctions.net/getTodos', {
+    const data = await fetch(getUrl('getTodos'), {
       method: 'post',
       body: JSON.stringify({
         token: rootState.user.token
@@ -38,7 +39,7 @@ export const actions = {
     const index = state.todos.reduce((acc, v, i) => v.id === id ? i : acc, -1)
     if (index >= 0 && index < state.todos.length) {
       commit('changeTodoStatusByIndex', { index, status })
-      fetch('https://us-central1-od-o-todo.cloudfunctions.net/updateTodo', {
+      fetch(getUrl('updateTodo'), {
         method: 'post',
         body: JSON.stringify({
           token: state.user.token,
@@ -57,7 +58,7 @@ export const actions = {
       throw (new Error('Invalid content variable: title prop is not defined\n content value: ' + content))
     }
     try {
-      const response = await fetch('https://us-central1-od-o-todo.cloudfunctions.net/addTodo', {
+      const response = await fetch(getUrl('addTodo'), {
         method: 'post',
         body: JSON.stringify({
           title: content.title,
@@ -81,7 +82,7 @@ export const actions = {
   removeTodo ({ state, commit }, { id }) {
     commit('changeTodos', state.todos.filter(v => v.id !== id))
     this.$updateLocalStorage(state.todos)
-    fetch('https://us-central1-od-o-todo.cloudfunctions.net/deleteTodo', {
+    fetch(getUrl('deleteTodo'), {
       method: 'post',
       body: JSON.stringify({
         token: state.user.token,

@@ -66,6 +66,7 @@ export default {
     projectId: process.env.projectId,
     storageBucket: process.env.storageBucket,
     messagingSenderId: process.env.messagingSenderId,
-    appId: process.env.appId
+    appId: process.env.appId,
+    API_HOST: process.env.API_HOST
   }
 }
