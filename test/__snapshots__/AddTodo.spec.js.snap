@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddTodo Component contains AddTodo html 1`] = `
-"<form class=\\"flex w-full justify-between align-middle\\"><input type=\\"text\\" placeholder=\\"todo title ...\\" class=\\"focus:shadow-inner transition shadow-xs focus:outline-none border border-gray-200 text-gray-600 px-3 py-2 rounded-md flex-grow mr-2\\"> <button class=\\"hover:bg-indigo-500 text-gray-600 hover:text-white transition px-2 py-2 border border-gray-200 rounded-md hover:shadow-sm\\">
+"<form class=\\"flex w-full justify-between align-middle\\"><input type=\\"text\\" placeholder=\\"todo title ...\\" required=\\"required\\" class=\\"focus:shadow-inner transition shadow-xs focus:outline-none border border-gray-200 text-gray-600 px-3 py-2 rounded-md flex-grow mr-2\\"> <button class=\\"hover:bg-indigo-500 text-gray-600 hover:text-white transition px-2 py-2 border border-gray-200 rounded-md hover:shadow-sm\\">
     Add
   </button></form>"
 `;
