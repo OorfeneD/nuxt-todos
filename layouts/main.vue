@@ -1,12 +1,12 @@
 <template>
   <div>
-    <header class="absolute w-full px-5 py-3 flex justify-between items-center">
+    <header class="static lg:absolute w-full px-5 py-3 flex justify-between items-center">
       <div class=" font-bold text-xl text-purple-800 flex">
         <!-- <icon class="mr-2" note />  od-o-todo -->
       </div>
       <div v-if="isLoggedIn" class="flex flex-row items-center gap-2">
         <p class="text-sm">
-          You are logged in as <span class="text-gray-800 underline font">{{ user.email }}</span>
+          <span class="text-gray-800 underline font">{{ user.email }}</span>
         </p>
         <button class="border border-gray-100 font-thin px-3 py-1 rounded-md hover:bg-indigo-500 hover:text-white transition" @click="logoutClick">
           Log out
