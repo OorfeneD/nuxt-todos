@@ -97,29 +97,4 @@ describe('index page', () => {
       expect(actions.updateTodo).toHaveBeenCalled()
     })
   })
-  describe('modals', () => {
-    let wrapper
-    beforeEach(() => {
-      preInit()
-      wrapper = shallowMount(index, {
-        store: emptyStore,
-        localVue,
-        mocks: {
-          $nuxt: {
-            $emit: jest.fn()
-          }
-        }
-      })
-    })
-    test('calls showModal with `signup` modalType on Sign Up button click', () => {
-      wrapper.find('button:nth-child(1)').trigger('click')
-      expect(wrapper.vm.$nuxt.$emit).toHaveBeenCalled()
-      expect(wrapper.vm.$nuxt.$emit).toHaveBeenLastCalledWith('modalshow', 'signup')
-    })
-    test('calls showModal with `signin` modalType on Sign In button click', () => {
-      wrapper.find('button:nth-child(2)').trigger('click')
-      expect(wrapper.vm.$nuxt.$emit).toHaveBeenCalled()
-      expect(wrapper.vm.$nuxt.$emit).toHaveBeenLastCalledWith('modalshow', 'signin')
-    })
-  })
 })
